@@ -65,4 +65,4 @@ def convert_array_of_ordered_dict_to_json(array_of_ordered_dict):
 
 if __name__ == "__main__":
     array_of_ordered_dict = create_ordered_dict_from_input()
-    ruby_hash = convert_array_of_ordered_dict_to_json(array_of_ordered_dict)
+    convert_array_of_ordered_dict_to_json(array_of_ordered_dict)
