@@ -35,8 +35,7 @@ def create_ordered_dict_from_input():
         return array_of_ordered_dict;
 
 
-# Convert the array of dictionary objects into a ruby dictionary.
-# This will ensure fast lookup in the Logstash pipeline
+# Convert the array of dictionary objects into a json object.
 def convert_array_of_ordered_dict_to_json(array_of_ordered_dict):
 
     print("Creating %s" % OUTPUT_FILE_PATH)
@@ -47,11 +46,11 @@ def convert_array_of_ordered_dict_to_json(array_of_ordered_dict):
 
     arr_len = len(array_of_ordered_dict)
     for idx, row in enumerate(array_of_ordered_dict):
-        point_id = row[LOOKUP_COL]
+        lookup_id = row[LOOKUP_COL]
         del row[LOOKUP_COL]
 
-        # point_id is a dictionary key, with the json_dict as the value
-        json_element = '"{0}" : {1}'.format(point_id, json.dumps(row))
+        # lookup_id is a dictionary key, with the json_dict as the value
+        json_element = '"{0}" : {1}'.format(lookup_id, json.dumps(row))
 
         # If this is the last json element, then the dictionary should be closed rather than
         # adding a trailing comma.
