@@ -49,7 +49,7 @@ def convert_array_of_ordered_dict_to_json(array_of_ordered_dict):
         lookup_id = row[LOOKUP_COL]
         del row[LOOKUP_COL]
 
-        # lookup_id is a dictionary key, with the json_dict as the value
+        # lookup_id is a dictionary key, with a json dict as the value
         json_element = '"{0}" : {1}'.format(lookup_id, json.dumps(row))
 
         # If this is the last json element, then the dictionary should be closed rather than
