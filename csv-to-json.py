@@ -17,7 +17,7 @@ LOOKUP_COL = "lookup_id"
 
 
 # Each CSV line will be converted into a dictionary object, and pushed
-# onto an array. This ensures that the generated ruby
+# onto an array. This ensures that the generated json
 # will have the same order as the lines in the CSV file.
 array_of_ordered_dict = []
 
