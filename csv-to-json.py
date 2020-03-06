@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+
+# This is written with python3 syntax
+
 import csv
 import os
 import json
@@ -23,10 +27,11 @@ array_of_ordered_dict = []
 def create_ordered_dict_from_input():
     with open(INPUT_FILE_PATH) as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=CSV_DELIMITER)
-        print("opened file")
+        print("Reading %s" % INPUT_FILE_PATH)
         for row in csv_reader:
             array_of_ordered_dict.append(row)
 
+        print("Finished reading %s" % INPUT_FILE_PATH)
         return array_of_ordered_dict;
 
 
@@ -34,6 +39,7 @@ def create_ordered_dict_from_input():
 # This will ensure fast lookup in the Logstash pipeline
 def convert_array_of_ordered_dict_to_json(array_of_ordered_dict):
 
+    print("Creating %s" % OUTPUT_FILE_PATH)
     f = open(OUTPUT_FILE_PATH, "w")
 
     # Create the json lookup table
@@ -53,6 +59,7 @@ def convert_array_of_ordered_dict_to_json(array_of_ordered_dict):
 
         f.write(json_line)
 
+    print("Finished writing %s" % OUTPUT_FILE_PATH)
     return 0
 
 
