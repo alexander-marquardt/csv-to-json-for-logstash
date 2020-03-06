@@ -54,7 +54,7 @@ def convert_array_of_ordered_dict_to_json(array_of_ordered_dict):
 
         # If this is the last json element, then the dictionary should be closed rather than
         # adding a trailing comma.
-        json_line = ''.join([json_element, "\n}"]) if (idx+1) == arr_len else ''.join([json_element, ",\n"])
+        json_line = ''.join([json_element, "\n}\n"]) if (idx+1) == arr_len else ''.join([json_element, ",\n"])
 
         f.write(json_line)
 
